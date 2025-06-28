@@ -1,195 +1,195 @@
-大家好，欢迎回来鸿蒙5莓创图表组件的专场，我们这一期来讲解组合图组件中title属性的深度用法，带大家掌握标题模块的完整配置技巧！
+### Hello and welcome back to our special session on HarmonyOS 5 Berry Creative chart components! In this episode, we'll explore the in-depth usage of the `title` property in combined chart components, helping you master comprehensive configuration skills for the title module!  
 
-* * *
 
-### 一、show属性
+### 一、`show` Property  
+**Function**: Toggle the title module's visibility.  
+**Type**: Boolean  
+**Default**: `true`  
+**Options**: `true` (show), `false` (hide)  
+**Scenario**: Dynamically switch title visibility.  
 
-作用：控制标题模块的显示与隐藏 类型：Boolean 默认值：true 可选值：true（显示标题）、false（隐藏标题） 使用场景：需要动态切换标题可见性时使用
-
-```
+```json
 title: {
-  show: false  //隐藏整个标题模块
+  show: false  // Hide the entire title module
 }
-```
+```  
 
-* * *
 
-### 二、text属性
+### 二、`text` Property  
+**Function**: Set the main title text.  
+**Type**: String  
+**Default**: Empty string  
+**Scenario**: Display the core chart theme (e.g., "2023 Sales Data Statistics").  
 
-作用：设置主标题文本内容 类型：String 默认值：空字符串 使用场景：展示图表核心主题，如"2023年销售数据统计"
-
-```
+```json
 title: {
-  text: "莓创科技用户分布图"  //主标题文字
+  text: "Berry Creative User Distribution"  // Main title text
 }
-```
+```  
 
-* * *
 
-### 三、subtext属性
+### 三、`subtext` Property  
+**Function**: Set supplementary sub-title text.  
+**Type**: String  
+**Default**: Empty string  
+**Scenario**: Add auxiliary info (e.g., "Data as of 2023-12").  
 
-作用：设置副标题补充说明 类型：String 默认值：空字符串 使用场景：添加辅助信息，如"数据截止至2023-12"
-
-```
+```json
 title: {
-  subtext: "数据来源：国家统计局"  //灰色小字副标题
+  subtext: "Data Source: National Bureau of Statistics"  // Gray sub-title text
 }
-```
+```  
 
-* * *
 
-### 四、direction排版方向
+### 四、`direction` Layout Direction  
+**Function**: Control main/sub-title arrangement.  
+**Type**: String  
+**Default**: `'column'`  
+**Options**:  
+- `'column'` (vertical, default)  
+- `'row'` (horizontal)  
+**Scenario**: Vertical for narrow screens; horizontal for wide screens.  
 
-作用：控制主副标题的排列方式 类型：String 默认值：'column' 可选值：
-
--   'column'（垂直排列，默认）
--   'row'（水平并排） 使用场景：窄屏设备适合垂直排列，宽屏可尝试水平布局
-
-```
+```json
 title: {
-  direction: 'row'  //标题与副标题横向排列
+  direction: 'row'  // Align title and sub-title horizontally
 }
-```
+```  
 
-* * *
 
-### 五、itemGap间距控制
+### 五、`itemGap` Spacing Control  
+**Function**: Set spacing between main and sub-titles.  
+**Type**: Number  
+**Default**: `5`  
+**Scenario**: Increase spacing for larger font sizes.  
 
-作用：设置主副标题之间的间隔距离 类型：Number 默认值：5 使用场景：当使用大字号时需要增大间距
-
-```
+```json
 title: {
-  itemGap: 15  //增加标题间距
+  itemGap: 15  // Expand title spacing
 }
-```
+```  
 
-* * *
 
-### 六、定位四要素（left/right/top/bottom）
+### 六、Positioning Properties (left/right/top/bottom)  
+**Function**: Precisely control title container position.  
+**Type**: String | Number  
+**Default**: `'auto'` (auto-center)  
+**Special Values**:  
+- Number: Pixel value (e.g., `20`)  
+- String: Percentage (e.g., `'20%'`)  
+**Scenario**: Align title left/right.  
 
-作用：精准控制标题容器位置 类型：String | Number 默认值：'auto'（自动居中） 特殊值说明：
-
--   数字类型：像素值（如20）
--   字符串：百分比（如'20%'） 使用场景：需要标题靠左/右对齐时
-
-```
+```json
 title: {
-  left: '10%',   //左侧留10%边距
-  top: 30        //距离顶部30像素
+  left: '10%',   // 10% left margin
+  top: 30        // 30px from top
 }
-```
+```  
 
-* * *
 
-### 七、offset偏移量
+### 七、`offset` Offset  
+**Function**: Fine-tune title position (secondary adjustment).  
+**Type**: Array  
+**Default**: `[0, -20]`  
+**Params**:  
+- 1st element: Horizontal offset (positive=right, negative=left)  
+- 2nd element: Vertical offset (positive=down, negative=up)  
+**Scenario**: Precisely adjust title placement.  
 
-作用：微调标题位置（基于定位后的二次调整） 类型：Array 默认值：[0, -20] 参数说明：
-
--   第一个元素：水平偏移（正右负左）
--   第二个元素：垂直偏移（正下负上） 使用场景：精细调整标题位置
-
-```
+```json
 title: {
-  offset: [10, -10]  //向右10px，向上10px
+  offset: [10, -10]  // +10px right, -10px up
 }
-```
+```  
 
-* * *
 
-### 八、textStyle主标题样式
+### 八、`textStyle` Main Title Style  
+**Function**: Customize main title text style.  
+**Sub-properties**:  
+1. `color`  
+   - Type: String  
+   - Default: `#333`  
+   - Example: `'#2c7be5'` (brand color)  
 
-作用：定制主标题文本样式 子属性详解：
+1. `fontSize`  
+   - Type: Number  
+   - Default: `36`  
+   - Tip: 24-28 for mobile.  
 
-1.  color
+1. `fontWeight`  
+   - Type: String  
+   - Default: `'bold'`  
+   - Options: `'normal'`, `'lighter'`  
 
--   类型：String
--   默认：#333
--   示例：'#2c7be5'（品牌色）
+1. `textAlign`  
+   - Type: String  
+   - Default: `'center'`  
+   - Options: `'left'`, `'right'`  
 
-1.  fontSize
-
--   类型：Number
--   默认：36
--   建议：移动端建议24-28
-
-1.  fontWeight
-
--   类型：String
--   默认：'bold'
--   可选：'normal' | 'lighter'
-
-1.  textAlign
-
--   类型：String
--   默认：'center'
--   可选：'left' | 'right'
-
-```
+```json
 textStyle: {
   color: '#1a73e8',
   fontSize: 28,
   fontWeight: 'lighter',
   textAlign: 'left'
 }
-```
+```  
 
-* * *
 
-### 九、subtextStyle副标题样式
+### 九、`subtextStyle` Sub-title Style  
+**Configuration**: Similar to `textStyle`, with notes:  
+- Default font size `28` (smaller than main title).  
+- Default color `red` (建议改为灰色 for harmony).  
 
-配置方式与textStyle相同，特殊注意：
-
--   默认字号28小于主标题
--   默认颜色为红色（可改为灰色更协调）
-
-```
+```json
 subtextStyle: {
   color: '#666',
   fontSize: 20,
-  fontStyle: 'italic'  //添加斜体
+  fontStyle: 'italic'  // Add italic style
 }
-```
+```  
 
-* * *
 
-### 十、rLevel渲染层级
+### 十、`rLevel` Rendering Layer  
+**Function**: Control title overlay order with other elements.  
+**Type**: Number  
+**Default**: `20`  
+**Scenario**: Increase layer when title is obscured.  
 
-作用：控制标题与其他元素的叠加顺序 类型：Number 默认值：20 使用场景：当标题被其他元素遮挡时提升层级
+```json
+rLevel: 99  // Ensure title is on top layer
+```  
 
-```
-rLevel: 99  //确保标题在最顶层
-```
 
-* * *
+### 十一、`animationCurve` Animation Easing  
+**Function**: Set title entry animation easing effect.  
+**Type**: String  
+**Default**: `'easeOutCubic'`  
+**Recommendations**: `'linear'`, `'bounceOut'` (bounce effect).  
 
-### 十一、animationCurve动画曲线
+```json
+animationCurve: 'bounceOut'  // Add elastic entry animation
+```  
 
-作用：设置标题出现动画的缓动效果 类型：String 默认值：'easeOutCubic' 推荐值：'linear'（线性）、'bounceOut'（弹跳效果）
 
-```
-animationCurve: 'bounceOut'  //添加入场弹性动画
-```
+### 十二、`animationFrame` Animation Frames  
+**Function**: Control animation smoothness (frame rate).  
+**Type**: Number  
+**Default**: `30`  
+**Note**: Higher values = smoother but more performance-intensive.  
 
-* * *
+```json
+animationFrame: 60  // Enable high frame rate for premium devices
+```  
 
-### 十二、animationFrame动画帧数
 
-作用：控制动画流畅度的帧数设置 类型：Number 默认值：30 注意：值越大越流畅但消耗性能
-
-```
-animationFrame: 60  //高端设备启用高帧率
-```
-
-* * *
-
-### 🌟 综合实战案例
-
-```
+### 🌟 Comprehensive Practical Case  
+```javascript
 const chart = new McPieChart({
   title: {
     show: true,
-    text: "鸿蒙5设备占比",
-    subtext: "2023年Q4数据快报",
+    text: "HarmonyOS 5 Device Proportion",
+    subtext: "2023 Q4 Data Brief",
     direction: 'row',
     itemGap: 20,
     left: 'center',
@@ -207,15 +207,14 @@ const chart = new McPieChart({
     animationCurve: 'elasticOut'
   }
 });
-```
+```  
 
-该配置实现：
+**Configuration Achievements**:  
+1. Horizontal main/sub-title layout  
+2. Top-center positioning with fine-tuned offset  
+3. Custom fonts and brand colors  
+4. Elastic entry animation effect  
 
-1.  横向排列的主副标题
-1.  顶部居中+微调偏移
-1.  定制化字体与品牌色
-1.  弹性入场动画效果
 
-* * *
-
-好，这期讲到这里就结束了，希望大家能灵活运用title属性打造专业级图表标题！下期我们继续深入讲解图例(legend)模块的配置技巧，敬请期待！
+### Conclusion  
+This wraps up our guide to crafting professional chart titles with the `title` property! Stay tuned for the next episode, where we'll dive into legend module configuration techniques. See you then! 🚀
